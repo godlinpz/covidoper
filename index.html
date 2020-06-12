@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>КовидоПёр</title>
+
+    <link rel="stylesheet" href="main.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+    <div id="app">
+        <div class="game" :class="game_state">
+            <div class="toolbar">
+                <div class="timer">{{flags_count}}</div>
+                <div class="title">КовидоПёр</div>
+                <div class="buttons">
+                    <button @click="resetGame">Перезапуск</button>
+                </div>
+            </div>
+            <div class="toolbar options">
+                <div>Колчиство вирусов:</div>
+                <div class="mines_number">
+                    <input type="number" v-model="options.mines_number">
+                </div>
+                <div>Ширина:</div>
+                <div class="game_width">
+                    <input type="number" v-model="options.game_width">
+                </div>
+                <div class="game_height">
+                    <input type="number" v-model="options.game_height">
+                </div>
+                <div class="buttons">
+                    <button @click="applyOptions">Применить</button>
+                </div>
+            </div>
+            <div class="board">
+                <div v-for="map_row of map" class='row'>
+                    <div v-for="cell of map_row" 
+                        class='cell'
+                        :style="{ width: (100/game_width)+'%' }"
+                        :class="cellClass(cell)"
+                        @mousedown.left="onCellClick(cell)"
+                        @mousedown.right="onCellRightClick(cell)"
+                        @contextmenu.prevent
+                    >   
+                        <div v-if="cell.is_open && !cell.is_mine && cell.mines" class="cell-text">
+                            {{cell.mines}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>    
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,185 @@
+body
+{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.game
+{   
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #ccc;
+    padding: 15px;
+}
+
+.toolbar
+{
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(41, 45, 49);
+    color: white;
+    padding: 11px 17px;
+    font-size: 18x;
+    line-height: 25px;
+}
+
+.toolbar.options
+{
+    font-size: 14px;
+    line-height: 25px;
+    margin-top: 10px;
+}
+
+.toolbar input
+{
+    width: 40px;
+    text-align: center;
+}
+
+.toolbar .buttons
+{
+    min-width: 100px;
+    min-height: 25px;
+}
+
+.toolbar .buttons button
+{
+    color: white;
+    background-color: rgb(41, 45, 49);
+    border: 1px solid white;
+    padding: 4px 5px;
+    width: 99px;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.toolbar .buttons button:hover
+{
+    background-color: orange;
+}
+
+.timer
+{
+
+}
+
+.title
+{
+
+}
+
+.toolbar
+{
+
+}
+
+
+.mines_number
+{
+
+}
+
+.game_width
+{
+
+}
+
+.game_height
+{
+
+}
+
+.board
+{
+    margin-top: 20px;
+    background-color: white;
+    border: 3px solid rgb(41, 45, 49);
+    border-radius: 4px;
+}
+
+.row
+{
+    display: flex;
+}
+
+.cell
+{
+    box-sizing: border-box;   
+    text-align: center;
+    border: 1px solid #ccc;
+    position: relative;
+    cursor: pointer;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+
+    transition: 0.2;
+
+    font-weight: bold;
+}
+
+.cell:after{
+    content: '';
+    display: block;
+    padding-bottom: 100%;
+}
+
+.cell-text
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content:  center;
+    align-content: center;
+}
+
+.cell-text::selection
+{
+    background: transparent;
+}
+
+.cell.closed
+{
+    background-color: #999;
+    box-shadow: inset -2px -2px 2px #575757, inset 2px 2px 2px #d8d8d8;
+}
+
+.cell.closed:hover
+{
+    background-color: orange;
+    color: white;
+}
+
+.cell.mine
+{
+    background-image: url('mine_small.png');
+}
+
+.cell.flag
+{
+    background-image: url('flag_small.png');
+}
+
+.game.fail .cell.mine
+{
+    background-color: #ffa68d;
+}
+
+.game.win .cell.mine
+{
+    background-color: #6eff94;
+}
+
+.digit-0 {}
+.digit-1 { color: #1009b4; }
+.digit-2 { color: #2cb80e; }
+.digit-3 { color: #be1614; }
+.digit-4 { color: #0a0577; }
+.digit-5 { color: #5a1016; }
+.digit-6 { color: #19625e; }
+.digit-7 { color: #181818; }
+.digit-8 { color: #521f08; }
