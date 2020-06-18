@@ -272,7 +272,7 @@ var app = new Vue({
         openAllCells()
         {
             for(let y=0; y<this.map.length; ++y)
-                for(let x=0; x<this.map.length; ++x)
+                for(let x=0; x<this.map[y].length; ++x)
                 {
                     let cell = this.cell(x, y);
                     this.setCellOpen(cell);
